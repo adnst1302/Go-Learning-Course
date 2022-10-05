@@ -12,11 +12,14 @@ func main() {
 	defer db.Close()
 
 	ctx := context.Background()
-	//kdSupplier := "SP001"
+	kdSupp := "SP003"
+	namaSupp := "CV Amanda Karya Bakti"
+	hpSupp := "087892335622"
+	alamatSupp := "Perbaungan"
 
-	sqlQuery := "INSERT INTO tbl_supplier(kd_supplier, nama_supplier, no_hp, alamat, created_at, updated_at) VALUES ('SP002', 'CV Subur Karya', '087895336522','Medan Area','2022-10-05 11:07:33','2022-10-05 11:07:33')"
+	sqlQuery := "INSERT INTO tbl_supplier(kd_supplier, nama_supplier, no_hp, alamat, created_at, updated_at) VALUES (?,?,?,?,'2022-10-05 11:07:33','2022-10-05 11:07:33')"
 
-	_, err := db.ExecContext(ctx, sqlQuery)
+	_, err := db.ExecContext(ctx, sqlQuery, kdSupp, namaSupp, hpSupp, alamatSupp)
 
 	if err != nil {
 		panic(err)
