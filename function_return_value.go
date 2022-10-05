@@ -3,10 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	infoVpsHaxors := getInfoServer("VPS Haxors", "SGP", "105.122.201.111")
-	fmt.Println(infoVpsHaxors)
+	var server1 = getInfoServer("CHR Maxim", "HKG", "192.168.11.22")
+	fmt.Println(server1)
 }
 
 func getInfoServer(nama string, lokasi string, ip string) string {
-	return "Server name : " + nama + " - Lokasi : " + lokasi + " - IP : " + ip
+	var namaServer string
+	//var lokasiServer string
+	if lokasi == "SGP" {
+		namaServer = "Singapura"
+	} else if lokasi == "HKG" {
+		namaServer = "Hongkong"
+	}
+	return namaServer
 }
